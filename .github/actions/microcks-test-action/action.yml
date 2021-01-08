@@ -38,6 +38,7 @@ runs:
   image: 'quay.io/microcks/microcks-cli:0.3.0'
   entrypoint: '/usr/bin/bash'
   args:
+  - '-c'
   - >-
     microcks-cli test '${{ inputs.apiNameAndVersion }}' ${{ inputs.testEndpoint }} ${{ inputs.runner }} \
       --microcksURL=${{ inputs.microcksURL }} --waitFor=${{ inputs.waitFor }} --secretName='${{ inputs.secretName }}' \
