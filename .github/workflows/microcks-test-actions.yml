@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/microcks-test-action
         with:
-          apiNameAndVersion: 'API Pastry - 2.0 - 2.0.0'
+          apiNameAndVersion: 'API Pastry - 2.0:2.0.0'
           testEndpoint: 'http://quarkus-api-pastry-api-pastry.apps.cluster-e7cb.e7cb.example.opentlc.com'
           runner: OPEN_API_SCHEMA
           microcksURL: 'https://microcks-microcks.apps.cluster-e7cb.e7cb.example.opentlc.com/api/'
