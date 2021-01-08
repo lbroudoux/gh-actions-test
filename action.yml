@@ -46,4 +46,4 @@ runs:
       --insecure --operationsHeaders='${{ inputs.operationsHeaders }}'
 branding:
   icon: 'upload-cloud'  
-  color: '#83d0f0'
+  color: 'blue'
