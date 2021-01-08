@@ -12,6 +12,6 @@ jobs:
           testEndpoint: 'http://quarkus-api-pastry-api-pastry.apps.cluster-e7cb.e7cb.example.opentlc.com'
           runner: OPEN_API_SCHEMA
           microcksURL: 'https://microcks-microcks.apps.cluster-e7cb.e7cb.example.opentlc.com/api/'
-          keycloakClientId:  microcks-serviceaccount
-          keycloakClientSecret:  ab54d329-e435-41ae-a900-ec6b3fe15c54
+          keycloakClientId: 'microcks-serviceaccount'
+          keycloakClientSecret: 'ab54d329-e435-41ae-a900-ec6b3fe15c54'
           waitFor: '10sec'
