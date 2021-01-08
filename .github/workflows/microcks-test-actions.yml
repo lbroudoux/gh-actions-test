@@ -1,0 +1,17 @@
+name: microcks-test-actions
+on: [push]
+jobs:
+  microcks-test:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/microcks-test-action
+        with:
+          apiNameAndVersion: 'Beer Catalog API:0.9'
+          testEndpoint: 'http://beer-catalog-impl.example.com'
+          runner: OPEN_API_SCHEMA
+          microcksURL: 'https://microcks.example.com'
+          keycloakClientId:  ${{ secrets.MICROCKS_SERVICE_ACCOUNT }}
+          keycloakClientSecret:  ${{ secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS }}
+          waitFor: '10sec'
