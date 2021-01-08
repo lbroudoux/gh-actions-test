@@ -12,7 +12,7 @@ jobs:
       - name: Microcks Test GitHub action
         # You may pin to the exact commit or the version.
         # uses: microcks/test-github-action@dbd07a376e653ee58c05073467c230ba7e9f5aee
-        uses: microcks/test-github-action@v1
+        uses: microcks/test-github-action@main
         with:
           # <apiName:apiVersion>: Service to test reference. Exemple: 'Beer Catalog API:0.9'
           apiNameAndVersion: 'API Pastry - 2.0:2.0.0'
