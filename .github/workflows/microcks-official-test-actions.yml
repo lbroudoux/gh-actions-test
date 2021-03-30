@@ -17,11 +17,11 @@ jobs:
           # <apiName:apiVersion>: Service to test reference. Exemple: 'Beer Catalog API:0.9'
           apiNameAndVersion: 'API Pastry - 2.0:2.0.0'
           # URL where is deployed implementation to test
-          testEndpoint: 'http://quarkus-api-pastry-api-pastry.apps.cluster-e7cb.e7cb.example.opentlc.com'
+          testEndpoint: 'http://quarkus-api-pastry-api-pastry.apps.cluster-518c.518c.example.opentlc.com'
           # Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA, ASYNC_API_SCHEMA)
           runner: OPEN_API_SCHEMA
           # Microcks instance API endpoint
-          microcksURL: 'https://microcks-microcks.apps.cluster-e7cb.e7cb.example.opentlc.com/api/'
+          microcksURL: 'https://microcks-microcks.apps.cluster-518c.518c.example.opentlc.com/api/'
           # Keycloak Realm Service Account ClientId
           keycloakClientId: ${{ secrets.MICROCKS_SERVICE_ACCOUNT }}
           # Keycloak Realm Service Account ClientSecret
