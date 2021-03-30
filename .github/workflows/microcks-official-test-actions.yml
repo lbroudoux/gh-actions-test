@@ -1,0 +1,30 @@
+name: microcks-official-test-actions.yml
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+      
+      - name: Microcks Test GitHub action
+        # You may pin to the exact commit or the version.
+        # uses: microcks/test-github-action@dbd07a376e653ee58c05073467c230ba7e9f5aee
+        uses: microcks/test-github-action@main
+        with:
+          # <apiName:apiVersion>: Service to test reference. Exemple: 'Beer Catalog API:0.9'
+          apiNameAndVersion: 'API Pastry - 2.0:2.0.0'
+          # URL where is deployed implementation to test
+          testEndpoint: 'http://quarkus-api-pastry-api-pastry.apps.cluster-e7cb.e7cb.example.opentlc.com'
+          # Test strategy (one of: HTTP, SOAP, SOAP_UI, POSTMAN, OPEN_API_SCHEMA, ASYNC_API_SCHEMA)
+          runner: OPEN_API_SCHEMA
+          # Microcks instance API endpoint
+          microcksURL: 'https://microcks-microcks.apps.cluster-e7cb.e7cb.example.opentlc.com/api/'
+          # Keycloak Realm Service Account ClientId
+          keycloakClientId: ${{ secrets.MICROCKS_SERVICE_ACCOUNT }}
+          # Keycloak Realm Service Account ClientSecret
+          keycloakClientSecret: ${{ secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS }}
+          # Time to wait for test to finish (int + one of: milli, sec, min)
+          waitFor: 10sec
