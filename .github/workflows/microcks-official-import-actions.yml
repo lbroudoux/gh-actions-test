@@ -1,0 +1,23 @@
+name: microcks-official-import-actions.yml
+on: [push]
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      # Checkout repository content
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Microcks Import GitHub action
+        # You may pin to the exact commit or the version.
+        uses: microcks/import-github-action@main
+        with:
+          # <specificationFile1[:primary],specificationFile2[:primary]>` : Comma separated list of API specs to import with flag telling if it's a primary artifact. Example: 'specs/my-openapi.yaml:true,specs/my-postmancollection.json:false'
+          specificationFiles: 'samples/weather-forecast-openapi.yml:true,samples/weather-forecast-postman.json:false'
+          # Microcks instance API endpoint
+          microcksURL: 'https://microcks-microcks.apps.cluster-9d5e.9d5e.sandbox1893.opentlc.com/api/'
+          # Keycloak Realm Service Account ClientId
+          keycloakClientId: ${{ secrets.MICROCKS_SERVICE_ACCOUNT }}
+          # Keycloak Realm Service Account ClientSecret
+          keycloakClientSecret: ${{ secrets.MICROCKS_SERVICE_ACCOUNT_CREDENTIALS }}
