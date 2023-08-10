@@ -11,7 +11,7 @@ jobs:
 
       - name: Microcks Import GitHub action
         # You may pin to the exact commit or the version.
-        uses: microcks/import-github-action@main
+        uses: microcks/import-github-action@v1
         with:
           # <specificationFile1[:primary],specificationFile2[:primary]>` : Comma separated list of API specs to import with flag telling if it's a primary artifact. Example: 'specs/my-openapi.yaml:true,specs/my-postmancollection.json:false'
           specificationFiles: 'samples/weather-forecast-openapi.yml:true,samples/weather-forecast-postman.json:false'
